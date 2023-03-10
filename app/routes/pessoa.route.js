@@ -3,19 +3,19 @@ const router = express.Router()
 
 const pessoa = require("../controllers/pessoa.js");
 
-// Create
-router.post("/cadastrarPessoa", pessoa.create);
+// Cadastrar um cliente
+router.post("/cadastrarPessoa", pessoa.criarPessoa());
 
-// get all
-router.get("/", pessoa.findAll);
+// Obter todos os clientes
+router.get("/procurarPessoa", pessoa.findAll);
 
-// get one
-router.get("/:id", pessoa.findOne);
+// Obter um cliente especifico
+router.get("/procurarPessoa:id", pessoa.findOne);
 
 // Update
-router.put("/:id", pessoa.update);
+// router.put("/:id", pessoa.update);
 
-// Delete
-router.delete("/:id", pessoa.delete);
+// // Delete
+// router.delete("/:id", pessoa.delete);
 
 module.exports = router;

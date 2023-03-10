@@ -3,11 +3,11 @@ const {Sequelize} = require('sequelize');
 
 const database = new Sequelize({
     dialect: 'mysql',
-    host: 'localhost',
+    host: '127.0.0.1',
     port: 3306,
-    username: 'root',
-    password: 'root',
-    database: 'root'
+    username: 'aluno',
+    password: 'mysql',
+    database: 'mysql'
 });
 
 database.authenticate().then(function(){
@@ -16,4 +16,4 @@ database.authenticate().then(function(){
     console.log("deu ruim cria");
 });
 
-module.exports = db;
+module.exports = database;

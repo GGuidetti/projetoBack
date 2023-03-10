@@ -1,28 +1,30 @@
 const Pessoa = require("../models/Pessoa");
+const express = require('express');
+const router = express();
 
 // CREATE
-function criarPessoa(){
-    app.post("/cadastrar", async (req,res) => {
-        console.log(req.body);
+router.get("/procurarPessoa", async (req, res) => {
+    res.send(pessoa.findAll({}));
+})
 
-        await Pessoa.create(req.body).then(() => 
-        {
-            return res.json({
-                erro: false,
-                mensagem:"inseriu em galerinha"
-            })
-        }).catch(() => 
-        {
-            return res.status(400).json({
-                erro: false,
-                mensagem:"fudeu de vez"
-            });
+
+router.post("/cadastrarPessoa", async (req, res) => {
+    console.log(req.body);
+
+    await pessoa.create(req.body).then(() => {
+        return res.json({
+            erro: false,
+            mensagem: "inseriu em galerinha"
+        })
+    }).catch(() => {
+        return res.status(400).json({
+            erro: false,
+            mensagem: "fudeu de vez"
         });
-
-        res.send("Rota de cadastro");
-        return res;
     });
-}
+
+    return res;
+});
 
     // READ const pessoa = await Pessoa.findAll({}); 
     // console.log(pessoa[0].nome);
@@ -33,4 +35,4 @@ function criarPessoa(){
     // console.log(pessoaupd[0].nome);
     // DELETE await Pessoa.destroy({where:{nome:'teil'}});
 
-module.exports = {criarPessoa};
+// module.exports = {criarPessoa};
